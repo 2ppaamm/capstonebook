@@ -1,0 +1,61 @@
+<div class="col-md-10 col-md-offset-1">
+  <div>
+    <a [routerLink]="['/admin/']" class="btn btn-default"> Back</a>
+  </div>
+</div>
+
+<div class="col-md-10 col-md-offset-1">
+  <div class="well well bs-component">
+    <form novalidate class="form-horizontal" (ngSubmit)="createCourse(createCourseForm.value)" #createCourseForm="ngForm">
+      <fieldset>
+        <legend>Add a new course</legend>
+        <div class="form-group">
+          <label for="image" class="col-lg-2 control-label">Image</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="image" name="image" placeholder="Image of the course" ngModel #image="ngModel" required minlength="3">
+            <div *ngIf="image.errors?.required && image.touched" class="alert alert-danger">
+              Image is required
+            </div>
+            <div *ngIf="image.errors?.minlength && image.touched" class="alert alert-danger">
+              Minimum of 3 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="start_maxile_score" class="col-lg-2 control-label">Course Link</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="start_maxile_score" name="start_maxile_score" placeholder="Link of the course" ngModel #start_maxile_score="ngModel" required>
+            <div *ngIf="start_maxile_score.errors?.required && start_maxile_score.touched" class="alert alert-danger">
+              start_maxile_score is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="title" class="col-lg-2 control-label">Title</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="title" name="title" placeholder="Title" ngModel #title="ngModel" required>
+            <div *ngIf="title.errors?.required && title.touched" class="alert alert-danger">
+              Title is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description" class="col-lg-2 control-label">Description</label>
+          <div class="col-lg-10">
+            <textarea class="form-control" rows="3" id="description" name="description" placeholder="Description of the course" ngModel #description="ngModel" required></textarea>
+            <div *ngIf="description.errors?.required && description.touched" class="alert alert-danger">
+              Description is required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <a [routerLink]="['/admin/']" class="btn btn-default"> Cancel</a>
+            <button type="submit" class="btn btn-primary" [disabled]="createCourseForm.invalid">Create</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
