@@ -52,7 +52,7 @@ import { DropdownDirective } from './directives/dropdown.directive';
     RegisterComponent,
     LoginComponent,
     LogoutComponent,
-    DropdownDirective
+    DropdownDirective,
   ],
   imports: [
     routes,
