@@ -13,7 +13,7 @@ export class AdminCourseEditComponent implements OnInit, OnDestroy {
   message: string;
   id: any;
   params: any;
-  course = new Course('id', 'title', 'description', 'image', 'start_maxile_score');
+  course = new Course('id', 'course', 'description', 'image', 'start_maxile_score', 'end_maxile_score');
 
   constructor(private activatedRoute: ActivatedRoute, private courseService: CourseService) { }
 
@@ -23,7 +23,7 @@ export class AdminCourseEditComponent implements OnInit, OnDestroy {
       data => {
         console.log(data);
         this.course.description = data['description'];
-        this.course.course = data['title'];
+        this.course.course = data['course'];
         this.course.start_maxile_score = data['start_maxile_score'];
         this.course.image = data['image'];
         this.course.id = data['id'];

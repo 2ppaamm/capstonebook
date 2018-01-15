@@ -19,7 +19,7 @@ export class AuthService {
   login (user: Object): Observable<any> {
     return this.http.post('http://localhost/login', user)
       .map((response) => {
-        const token = response.message;
+        const token = response.token;
 
         console.log('Response token:' + token);
 

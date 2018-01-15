@@ -1,0 +1,7 @@
+<ng-course-detail [selectedCourse]="selectedCourse"></ng-course-detail>
+
+<div class="container">
+  <div class="row">
+    <ng-course *ngFor="let course of courses | async" [course]="course" (click)="onSelect(course)"></ng-course>
+  </div>
+</div>
